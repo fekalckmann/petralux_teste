@@ -1,0 +1,387 @@
+/* =========================================
+   ESTILOS GERAIS E TIPOGRAFIA
+   ========================================= */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #FAFAFA;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+.container {
+    max-width: 90vw;
+    margin: 2em auto;
+    padding: 2em;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    text-transform: none; 
+}
+
+/* =========================================
+   CABEÇALHO (HEADER) - DESKTOP (PADRÃO: > 900px)
+   ========================================= */
+.header {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: stretch;
+    box-sizing: border-box;
+    min-height: 6em; 
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+}
+
+.spacer-header {
+    height: 7em; 
+}
+
+/* LOGO */
+.logo {
+    min-width: 150px; /* Largura mínima para o logo */
+    max-width: 15em;
+    padding: 0 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    max-height: 4em; 
+}
+
+/* CONTAINER DO MENU */
+.tarja {
+    flex-grow: 1; /* Ocupa todo o espaço restante */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+}
+
+nav.menu-nav {
+    width: 100%;
+    height: 100%; 
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* MENU (Lista de Itens) - DESKTOP */
+ol.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 2em 0 0;
+    display: flex;
+    align-items: center;
+    gap: 2em; 
+    height: 100%;
+}
+
+.menu li {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 0.9em; 
+    color: #555; 
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu li:hover {
+    color: #a4191f; 
+}
+
+/* Esconder o botão sanduíche no Desktop */
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE - MOBILE/TABLET (A partir de 900px)
+   ========================================= */
+@media (max-width: 900px) {
+    
+    /* Reorganiza o header para logo esquerda e toggle direita */
+    .header {
+        justify-content: space-between;
+        min-height: 5em;
+    }
+    .spacer-header {
+        height: 5em;
+    }
+    .logo {
+        flex: 0; 
+        padding: 0 1em;
+    }
+    
+    /* Mostrar o sanduíche */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 3em;
+        height: 3em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001; 
+        margin-right: 0.5em; /* Respiro */
+    }
+    .menu-toggle .bar {
+        display: block;
+        width: 1.6em;
+        height: 2px;
+        margin: 3px 0;
+        background: #333; 
+        border-radius: 1px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Esconder o menu Desktop e preparar o menu Mobile */
+    ol.menu {
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        
+        position: absolute;
+        top: 5em; 
+        left: 0;
+        
+        background-color: #ffffff; /* Fundo branco */
+        border-bottom: 1px solid #eee;
+        
+        /* Estado Fechado: Altura zero e invisível */
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        padding: 0;
+        z-index: 999;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
+        transition: max-height 0.4s ease-in-out, opacity 0.3s;
+    }
+    
+    /* Estado Ativo/Aberto - CORREÇÃO DE ALTURA */
+    .menu-nav.active ol.menu {
+        max-height: 1000px; /* AUMENTADO para garantir que todos os itens apareçam */
+        opacity: 1;
+        padding: 1em 0; /* Padding reduzido para economia de espaço vertical */
+    }
+
+    /* Estilo dos Itens do Menu Mobile */
+    .menu li {
+        width: 100%;
+        text-align: center;
+        padding: 0.8em 0; /* Padding reduzido para economia de espaço vertical */
+        font-size: 1.1em;
+        color: #000000; /* Preto puro para contraste */
+        font-weight: 700; 
+    }
+    
+    .menu li:hover {
+        background-color: #f0f0f0; 
+    }
+    
+    /* Animação do X */
+    .menu-nav.active .menu-toggle .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+        background: #a4191f; 
+    }
+    .menu-nav.active .menu-toggle .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-nav.active .menu-toggle .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+        background: #a4191f; 
+    }
+
+    /* Ajustes Gerais de Conteúdo (para telas menores) */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 4em 1em;
+    }
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 3em;
+    }
+    .feature-grid {
+        flex-direction: column;
+        gap: 2em;
+    }
+    .feature-item {
+        border-left: none; 
+        border-top: 1px solid #eee; 
+        padding: 2em 0 0 0;
+        text-align: center;
+    }
+    .feature-item:first-child {
+        border-top: none;
+        padding-top: 0;
+    }
+    .cta-button {
+        width: 100%; 
+        box-sizing: border-box;
+    }
+    .pre-order input[type="email"] {
+        width: 100%;
+        margin-bottom: 1em;
+        margin-right: 0;
+    }
+    html {
+        font-size: 100%;
+    }
+}
+
+
+/* =========================================
+   SEÇÕES DA PÁGINA (PÓS HEADER)
+   ========================================= */
+
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 6em 2em; 
+    margin-top: -1em;
+    margin-bottom: 1em;
+    background-color: #fff; 
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 4em; 
+}
+.hero-text h2 {
+    font-weight: 700;
+    font-size: 3em; 
+    line-height: 1.1;
+    margin-bottom: 0.5em;
+}
+.hero-text p {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 2.5em;
+    font-weight: 300; 
+}
+.hero-image { 
+    flex: 1; 
+    text-align: right; 
+}
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 2px; 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08); 
+}
+
+/* Botão CTA (Movido para baixo, longe de media queries) */
+.cta-button {
+    font-family: 'Montserrat', sans-serif; 
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 0.9em;
+    padding: 18px 40px; 
+    border-radius: 4px; 
+    background-color: #8B2E31; 
+    color: white;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(139, 46, 49, 0.2);
+}
+.cta-button:hover { 
+    background-color: #6e2225; 
+    transform: translateY(-2px); 
+}
+
+/* Features Section */
+.features {
+    padding: 6em 2em;
+    text-align: center;
+    background-color: #FAFAFA; 
+}
+.feature-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 3em;
+    margin-top: 3em;
+}
+.feature-item {
+    background: transparent;
+    box-shadow: none;
+    border-left: 1px solid #e0e0e0; 
+    border-radius: 0;
+    text-align: left;
+    padding: 0 0 0 2em; 
+    flex: 1;
+}
+.feature-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    margin-bottom: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #333;
+}
+.feature-item p {
+    font-size: 0.95em;
+    color: #777;
+}
+
+/* Pre-Order Section */
+.pre-order {
+    background-color: #fff; 
+    text-align: center;
+    padding: 6em 2em;
+    margin-top: 2em;
+    border-top: 1px solid #f0f0f0;
+}
+.pre-order h3 {
+    color: #333;
+    font-size: 2.2em;
+    margin-bottom: 0.5em;
+}
+.pre-order input[type="email"] {
+    padding: 1em;
+    width: 20em;
+    max-width: 80%;
+    margin-right: 1em;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.footer {
+    text-align: center;
+    padding: 3em 0;
+    font-size: 0.85em;
+    color: #999;
+    border-top: 1px solid #eee;
+    background-color: #fafafa;
+}

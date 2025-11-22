@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petralux - Onde a Natureza e a Elegância se Encontram</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header">
+        <figure class="logo"><img src="images/Petralux_logo.png" alt="Logo Petralux"></figure>
+        <h1 hidden="hidden">PETRALUX</h1>
+        <div class="tarja">
+            <nav class="menu-nav">
+                <button class="menu-toggle" aria-label="Abrir menu"
+                    onclick="document.querySelector('.menu-nav').classList.toggle('active')">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ol class="menu">
+                    <li><a href="#" style="text-decoration: none; color: inherit;">Início</a></li>
+                    <li><a href="https://loja.petralux.art.br" style="text-decoration: none; color: inherit;">Loja</a>
+                    </li>
+                    <li><a href="#cadastro" style="text-decoration: none; color: inherit;">Contato</a></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="spacer-header"></div>
+
+    <div class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Seu Oásis de Tranquilidade e Elegância.</h2>
+                <p>Descubra a peça de decoração que transcende o tempo. Onde a beleza bruta da natureza encontra o
+                    design minimalista, criando um presente único e duradouro.</p>
+                <a href="#cadastro" class="cta-button">Garanta Prioridade no Lançamento Exclusivo</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/vela_principal.png" alt="Imagem de uma Petralux, um presente elegante e natural.">
+            </div>
+        </section>
+
+        <section class="features">
+            <h3>Por Que Escolher a Petralux?</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>💎 Exclusividade Garantida</h4>
+                    <p>Cada peça é única, feita à mão e com materiais premium. Você não está comprando um produto, mas
+                        uma obra de arte natural.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🌱 Conexão com a Natureza</h4>
+                    <p>Traga a serenidade e o equilíbrio do mundo natural para o seu lar ou escritório, sem a
+                        necessidade de manutenção.</p>
+                </div>
+                <div class="feature-item">
+                    <h4>🎁 Presente Inesquecível</h4>
+                    <p>Ideal para ocasiões especiais. Um presente que simboliza cuidado, sofisticação e bom gosto, por
+                        um valor acessível.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="pre-order" id="cadastro">
+            <h3>Seja um dos Primeiros a Ter a Petralux</h3>
+            <p>O lançamento oficial está chegando. Cadastre-se agora e receba acesso exclusivo à pré-venda com desconto
+                especial.</p>
+
+            <form action="[Link do Seu Serviço de E-mail Marketing]" method="POST">
+                <input type="email" name="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit" class="cta-button">Quero Acesso Exclusivo!</button>
+            </form>
+            <p>*As primeiras 40 unidades terão prioridade na entrega.</p>
+        </section>
+
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 Petralux. Todos os direitos reservados. | Contato: [Seu E-mail]</p>
+    </div>
+
+</body>
+
+</html>
